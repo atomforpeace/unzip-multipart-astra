@@ -1,0 +1,45 @@
+#!/bin/bash
+
+help ()
+{
+        # Показывает справку
+        echo "Распаковка многотомного архива zip через gtk"
+        echo
+        echo "unzip-multipart [файл]"
+        echo "  -h вывод этой справки"
+}
+
+
+# Обработка аргументов
+while getopts ":h" option; do
+  case "$option" in
+    h)
+      help
+      exit
+      ;;
+   \?)
+      echo "Некорректный аргумент"
+      help
+      exit 1
+      ;;
+    :)  
+      echo "Отсутствует аргумент"
+      help
+      exit 1
+      ;;
+  esac
+done  
+shift "$((OPTIND-1))"
+
+if [ $# == 0 ] ; then
+  help
+  exit 1
+fi
+
+file_name="$1"
+file_name=${file_name%ip*}
+echo $file_name
+tmp_name=tmp$(date +"%Y%m%d%H%M").zip
+cat "${file_name}"* > "$tmp_name"
+unzip -n "$tmp_name"
+rm "$tmp_name"

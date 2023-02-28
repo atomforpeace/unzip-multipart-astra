@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Actions=MultipartUnzip
+
+[Desktop Action MultipartUnzip]
+Name=Unpack Multipart Archive
+Name[ru]=Распаковать многотомный архив
+Exec=unzip-multipart %f
+Icon=/usr/share/icons/fly-astra/48x48/mimetypes/application-zip.png
+MimeType=application/zip

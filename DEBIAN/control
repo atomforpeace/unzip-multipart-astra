@@ -1,0 +1,6 @@
+Package: unzip-multipart
+Version: 1.0
+Architecture: amd64
+Maintainer: Anton Lushnikov <antonlushnikow@gmail.com>
+Description: Unpack multipart zip-archive via context menu in Astra Linux
+Depends: unzip
